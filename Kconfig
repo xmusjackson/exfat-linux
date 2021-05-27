@@ -12,6 +12,18 @@ config EXFAT_FS
 
 if EXFAT_FS
 
+config EXFAT_COMPAT_TUXERA
+	bool "Tuxera compatibility for sdFAT"
+	default y
+	depends on EXFAT_FS
+	help
+	  Say Y here for the exFAT driver to register as texfat and
+	  to support extra mount options for drop-in replacement on
+	  systems previously using Tuxera's commercial exFAT driver.
+
+	  If you are building exFAT as a module, this will change
+	  the module's name to texfat.
+
 config EXFAT_DEFAULT_IOCHARSET
 	string "Default iocharset for exFAT"
 	default "utf8"
